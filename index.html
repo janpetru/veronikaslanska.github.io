@@ -107,7 +107,7 @@
         <div class="service-text">
           <span class="ribbon">{{ s.nazev }}</span>
           {%- if s.podtitul %}<h3>{{ s.podtitul }}</h3>{% else %}<h3>{{ s.nazev }}</h3>{% endif %}
-          {{ s.popis | markdownify }}
+          {{ s.popis | markdownify | replace: '</strong> – ', '</strong> ' | replace: '</strong> - ', '</strong> ' | replace: '<li><strong>', '<li class="feat"><strong>' }}
           {%- if s.ceny.size > 0 %}
           <p class="from">od <strong>{{ s.ceny.first.cena }}</strong> · <a href="#cenik">celý ceník</a></p>
           {%- endif %}
