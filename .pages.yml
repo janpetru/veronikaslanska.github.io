@@ -16,11 +16,12 @@ content:
       - { name: motto, label: Motto (pod logem v hlavičce), type: string }
       - { name: slogan, label: Krátký popis pod nadpisem, type: text }
       - { name: uvodni_foto, label: Úvodní fotka, type: image }
-      - { name: novinka, label: Oznámení / novinka (nechte prázdné pro skrytí), type: text }
+      - { name: novinka, label: Text v rámečku u fotky (nechte prázdné pro skrytí), type: text }
       - { name: rezervace_url, label: Odkaz na online rezervaci, type: string }
       - { name: telefon, label: Telefon, type: string }
       - { name: email, label: E-mail, type: string }
       - { name: adresa, label: Adresa, type: text }
+      - { name: adresa_poznamka, label: Poznámka k adrese (jak salon najít), type: string }
       - { name: oteviraci_doba, label: Otevírací doba, type: string }
       - { name: instagram, label: Instagram (odkaz), type: string }
       - { name: facebook, label: Facebook (odkaz), type: string }

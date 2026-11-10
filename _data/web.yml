@@ -9,11 +9,12 @@ email: slanskaveronika@email.cz
 adresa: |-
   Lhotka 55
   277 31 Lhotka
+adresa_poznamka: Pozor, salon nenajdete na obecním úřadě.
 oteviraci_doba: Dle objednání
 instagram: https://www.instagram.com/salon_lhotka/
 facebook: https://www.facebook.com/veronika.petru.kosmetika.a.pedikura
 uvodni_foto: images/veronika.jpg
-novinka: Nově od října 2025, po 10 letech praxe v oboru, se přesouvám do klidného prostředí vesnice, kde vám nabídnu profesionální péči v příjemné atmosféře.
+novinka: Nově působím ve Lhotce u Mělníka, v klidném prostředí vesnice. Žádný shon ani hluk ulice – jen ticho, zeleň za oknem a chvíle, která patří jenom vám.
 
 vyhody:
   - nazev: Pedikúra bez skalpelu
@@ -61,11 +62,15 @@ sluzby:
     podtitul: Uvolnění pro tělo i mysl
     foto: ""
     popis: |-
-      Klasická masáž pro uvolnění a odpočinek. Pomůže i při bolestech šíje, zad a svalů.
+      Věnuji se výhradně klasické masáži. Tahy a hmaty, které používám, jsem
+      si postupně osvojila a vyladila během let praxe, a každou masáž přizpůsobuji
+      tomu, co právě vaše tělo potřebuje. Uleví od napětí a bolesti šíje, zad
+      i svalů a dopřeje vám chvíli opravdového odpočinku. Masáž nabízím
+      ve dvou délkách – 40 a 55 minut.
     ceny:
-      - polozka: Masáž 45 min
+      - polozka: Masáž 40 min
         cena: 750 Kč
-      - polozka: Masáž 60 min
+      - polozka: Masáž 55 min
         cena: 850 Kč
 
 poukaz:

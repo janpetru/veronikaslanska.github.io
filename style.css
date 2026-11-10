@@ -115,7 +115,7 @@ p, ul { margin: 0 0 1rem; }
 .hero { display: grid; gap: 3rem; padding-block: 2.5rem 3rem; align-items: center; }
 .hero-name { display: flex; flex-direction: column; margin: 0 0 1.75rem; }
 .hero-name .first {
-  font: 400 clamp(4.2rem, 19vw, 7.5rem)/1 var(--script); color: var(--terra-dark);
+  font: 400 clamp(3rem, 12vw, 5rem)/1 var(--script); color: var(--terra-dark);
   margin-left: -.05em; padding-right: .15em;
 }
 .hero-name .last {
@@ -247,6 +247,11 @@ p, ul { margin: 0 0 1rem; }
 .contact-card h3 { font-size: 1.25rem; }
 .contact-card a { text-decoration: none; }
 .contact-card a:hover { text-decoration: underline; }
+.contact-note { font-size: .95rem; color: var(--muted); font-style: italic; }
+.contact-map {
+  display: block; width: 100%; height: 320px; margin-top: 1.25rem;
+  border: 0; border-radius: var(--radius); background: var(--blush);
+}
 
 /* Footer */
 .foot { background: var(--brown); color: #d9c4ba; padding-block: 2.5rem; font-size: .85rem; }

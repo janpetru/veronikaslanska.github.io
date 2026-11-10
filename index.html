@@ -68,7 +68,7 @@
       <img class="hero-img" src="{{ w.uvodni_foto }}" alt="{{ w.jmeno }}" width="600" height="600">
       {%- endif %}
       {%- if w.novinka != "" and w.novinka %}
-      <div class="news"><span class="news-tag">Novinka</span><p>{{ w.novinka }}</p></div>
+      <div class="news"><span class="news-tag">Lhotka u Mělníka</span><p>{{ w.novinka }}</p></div>
       {%- endif %}
     </div>
   </section>
@@ -179,6 +179,9 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         <h3>Adresa</h3>
         <p>{{ w.adresa | newline_to_br }}</p>
+        {%- if w.adresa_poznamka and w.adresa_poznamka != "" %}
+        <p class="contact-note">{{ w.adresa_poznamka }}</p>
+        {%- endif %}
         <a href="https://mapy.cz/zakladni?q={{ w.adresa | replace: '
 ', ', ' | url_encode }}" target="_blank" rel="noopener">Zobrazit na mapě →</a>
       </div>
@@ -194,6 +197,9 @@
         <a href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Volné termíny online →</a>
       </div>
     </div>
+    <iframe class="contact-map" title="Mapa – {{ w.adresa | replace: '
+', ', ' }}" src="https://maps.google.com/maps?q={{ w.adresa | replace: '
+', ', ' | url_encode }}&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 </main>
 
