@@ -14,6 +14,8 @@
   --radius: 28px;
   --display: "Italiana", "Didot", Georgia, serif;
   --serif: "Playfair Display", Georgia, serif;
+  --script: "Great Vibes", "Snell Roundhand", cursive;
+  --name: "Cormorant Garamond", Georgia, serif;
   --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -111,16 +113,20 @@ p, ul { margin: 0 0 1rem; }
 
 /* Hero */
 .hero { display: grid; gap: 3rem; padding-block: 2.5rem 3rem; align-items: center; }
-.pill {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .45rem 1rem; border-radius: 999px; background: var(--blush);
-  font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--terra-dark);
+.hero-name { display: flex; flex-direction: column; margin: 0 0 1.75rem; }
+.hero-name .first {
+  font: 400 clamp(4.2rem, 19vw, 7.5rem)/1 var(--script); color: var(--terra-dark);
+  margin-left: -.05em; padding-right: .15em;
 }
-.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--terra); }
-.hero h1 { margin-bottom: .4rem; }
-.motto {
-  font: italic 400 clamp(1.3rem, 4.5vw, 1.7rem)/1.3 var(--serif); color: var(--terra);
-  margin-bottom: 1.25rem;
+.hero-name .last {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: -.15em; padding-left: .2em;
+  font: 500 clamp(1rem, 4.4vw, 1.35rem)/1.2 var(--name); color: var(--brown);
+  letter-spacing: .42em; text-transform: uppercase;
+}
+.hero-name .last::after {
+  content: ""; flex: 1; max-width: 6rem; height: 1px;
+  background: linear-gradient(90deg, var(--salmon), transparent);
 }
 .lead { font-size: 1.1rem; color: var(--muted); max-width: 32rem; }
 .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.75rem; }
