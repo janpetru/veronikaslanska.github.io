@@ -1,0 +1,57 @@
+# Konfigurace pro Pages CMS (https://app.pagescms.org) – jednoduchý editor webu
+media:
+  input: images
+  output: images
+
+content:
+  - name: web
+    label: Obsah webu
+    type: file
+    path: _data/web.yml
+    format: yaml
+    fields:
+      - { name: nazev, label: Název salonu, type: string }
+      - { name: podnazev, label: Lokalita (podnázev), type: string }
+      - { name: jmeno, label: Jméno, type: string }
+      - { name: slogan, label: Krátký popis pod nadpisem, type: text }
+      - { name: uvodni_foto, label: Úvodní fotka, type: image }
+      - { name: novinka, label: Oznámení / novinka (nechte prázdné pro skrytí), type: text }
+      - { name: rezervace_url, label: Odkaz na online rezervaci, type: string }
+      - { name: telefon, label: Telefon, type: string }
+      - { name: email, label: E-mail, type: string }
+      - { name: adresa, label: Adresa, type: text }
+      - { name: oteviraci_doba, label: Otevírací doba, type: string }
+      - { name: instagram, label: Instagram (odkaz), type: string }
+      - { name: facebook, label: Facebook (odkaz), type: string }
+      - name: sluzby
+        label: Služby
+        type: object
+        list: true
+        fields:
+          - { name: nazev, label: Název služby, type: string }
+          - { name: podtitul, label: Podtitul, type: string }
+          - { name: foto, label: Fotka, type: image }
+          - name: popis
+            label: Popis
+            type: text
+            description: "Odstavce oddělte prázdným řádkem. Odrážky začínají pomlčkou (- ). **tučně** = tučný text."
+          - name: ceny
+            label: Ceník
+            type: object
+            list: true
+            fields:
+              - { name: polozka, label: Položka, type: string }
+              - { name: cena, label: Cena, type: string }
+      - name: poukaz
+        label: Dárkový poukaz
+        type: object
+        fields:
+          - { name: nazev, label: Nadpis, type: string }
+          - { name: foto, label: Fotka, type: image }
+          - { name: text, label: Text, type: text }
+      - name: o_mne
+        label: O mně
+        type: object
+        fields:
+          - { name: foto, label: Fotka, type: image }
+          - { name: text, label: Text, type: text }

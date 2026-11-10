@@ -1,0 +1,138 @@
+---
+---
+{%- assign w = site.data.web -%}
+{%- capture tel -%}{{ w.telefon | remove: " " }}{%- endcapture -%}
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ w.nazev }} – {{ w.jmeno }} | pedikúra, kosmetika, masáže</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="theme-color" content="#f6f1e9">
+  <meta property="og:title" content="{{ w.nazev }} – {{ w.jmeno }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="{{ w.uvodni_foto }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26C6 12 16 5 27 5c0 12-8 21-21 21z' fill='%237a8b6a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Nunito+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#">{{ w.nazev }}</a>
+  <a class="btn btn-small" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Rezervovat</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">{{ w.jmeno }} · {{ w.podnazev }}</p>
+      <h1>{{ w.nazev }}</h1>
+      <p class="lead">{{ w.slogan }}</p>
+      <div class="actions">
+        <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Online rezervace</a>
+        <a class="btn btn-ghost" href="tel:{{ tel }}">Zavolat {{ w.telefon }}</a>
+      </div>
+    </div>
+    {%- if w.uvodni_foto != "" and w.uvodni_foto %}
+    <img class="hero-img" src="{{ w.uvodni_foto }}" alt="{{ w.nazev }}" width="1200" height="851">
+    {%- endif %}
+  </section>
+
+  {%- if w.novinka != "" and w.novinka %}
+  <p class="news">{{ w.novinka }}</p>
+  {%- endif %}
+
+  <nav class="chips" aria-label="Služby">
+    {%- for s in w.sluzby %}
+    <a href="#{{ s.nazev | slugify }}">{{ s.nazev }}</a>
+    {%- endfor %}
+    <a href="#cenik">Ceník</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  {%- for s in w.sluzby %}
+  <section class="service" id="{{ s.nazev | slugify }}">
+    {%- if s.foto != "" and s.foto %}
+    <img src="{{ s.foto }}" alt="{{ s.nazev }}" loading="lazy">
+    {%- endif %}
+    <div class="service-text">
+      <h2>{{ s.nazev }}</h2>
+      {%- if s.podtitul %}<p class="sub">{{ s.podtitul }}</p>{% endif %}
+      {{ s.popis | markdownify }}
+    </div>
+  </section>
+  {%- endfor %}
+
+  <section class="pricing" id="cenik">
+    <h2>Ceník</h2>
+    {%- for s in w.sluzby %}
+    {%- if s.ceny.size > 0 %}
+    <h3>{{ s.nazev }}</h3>
+    <ul class="prices">
+      {%- for c in s.ceny %}
+      <li><span>{{ c.polozka }}</span><span class="dots" aria-hidden="true"></span><strong>{{ c.cena }}</strong></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- endfor %}
+    <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Vybrat termín online</a>
+  </section>
+
+  {%- if w.poukaz.text != "" and w.poukaz.text %}
+  <section class="service gift">
+    {%- if w.poukaz.foto != "" and w.poukaz.foto %}
+    <img src="{{ w.poukaz.foto }}" alt="{{ w.poukaz.nazev }}" loading="lazy">
+    {%- endif %}
+    <div class="service-text">
+      <h2>{{ w.poukaz.nazev }}</h2>
+      {{ w.poukaz.text | markdownify }}
+    </div>
+  </section>
+  {%- endif %}
+
+  <section class="about">
+    {%- if w.o_mne.foto != "" and w.o_mne.foto %}
+    <img src="{{ w.o_mne.foto }}" alt="{{ w.jmeno }}" loading="lazy" width="600" height="600">
+    {%- endif %}
+    <div>
+      <h2>{{ w.jmeno }}</h2>
+      {{ w.o_mne.text | markdownify }}
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <h2>Kontakt</h2>
+    <div class="contact-grid">
+      <div>
+        <h3>Adresa</h3>
+        <p>{{ w.jmeno }}<br>{{ w.adresa | newline_to_br }}</p>
+        <p><a href="https://mapy.cz/zakladni?q={{ w.adresa | replace: '
+', ', ' | url_encode }}" target="_blank" rel="noopener">Zobrazit na mapě</a></p>
+      </div>
+      <div>
+        <h3>Otevírací doba</h3>
+        <p>{{ w.oteviraci_doba }}</p>
+        <h3>Telefon a e-mail</h3>
+        <p><a href="tel:{{ tel }}">{{ w.telefon }}</a><br><a href="mailto:{{ w.email }}">{{ w.email }}</a></p>
+      </div>
+    </div>
+    <p class="social">
+      {%- if w.instagram != "" and w.instagram %}<a href="{{ w.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+      {%- if w.facebook != "" and w.facebook %}<a href="{{ w.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+    </p>
+  </section>
+</main>
+
+<footer class="foot">© {{ site.time | date: "%Y" }} {{ w.jmeno }} · {{ w.nazev }}</footer>
+
+<div class="mobile-bar">
+  <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Online rezervace</a>
+  <a class="btn btn-ghost" href="tel:{{ tel }}" aria-label="Zavolat">Zavolat</a>
+</div>
+
+</body>
+</html>

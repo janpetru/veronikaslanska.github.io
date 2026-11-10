@@ -1,0 +1,7 @@
+lang: cs
+title: Salon Lhotka – Veronika Slánská
+description: Přístrojová (suchá) pedikúra, přírodní kosmetika Nobilis Tilia a masáže v Lhotce u Mělníka. Online rezervace.
+markdown: kramdown
+exclude:
+  - README.md
+  - NAVOD.md

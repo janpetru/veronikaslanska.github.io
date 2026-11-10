@@ -1,0 +1,72 @@
+nazev: Salon Lhotka
+podnazev: u Mělníka
+jmeno: Veronika Slánská
+slogan: Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.
+rezervace_url: https://veronika-slanska.snippet.myfox.cz/individual
+telefon: "+420 605 168 729"
+email: slanskaveronika@email.cz
+adresa: |-
+  Lhotka 55
+  277 31 Lhotka
+oteviraci_doba: Dle objednání
+instagram: https://www.instagram.com/salon_lhotka/
+facebook: https://www.facebook.com/veronika.petru.kosmetika.a.pedikura
+uvodni_foto: images/pedikura.jpg
+novinka: Nově od října 2025, po 10 letech praxe v oboru, se přesouvám do klidného prostředí vesnice, kde vám nabídnu profesionální péči v příjemné atmosféře.
+
+sluzby:
+  - nazev: Suchá pedikúra
+    podtitul: Bezpečná a šetrná péče o vaše nohy
+    foto: images/pedikura.jpg
+    popis: |-
+      Hledáte maximálně šetrné ošetření bez žiletek a skalpelu? Suchá pedikúra využívá špičkový profesionální přístroj, který zaručuje dokonale hladký výsledek, jemnost a absolutní přesnost.
+
+      - **Bez použití skalpelu** – nehrozí žádné říznutí ani poranění pokožky.
+      - **Bezbolestná a precizní** – přístrojové frézy jemně opracují nehty i ztvrdlou kůži.
+      - **Vhodná pro diabetiky** – splňuje nejpřísnější hygienické a bezpečnostní nároky. Diabetikům přispívá pojišťovna.
+      - **Dlouhotrvající efekt** – kůže dorůstá pomaleji a zůstává déle jemná.
+    ceny:
+      - polozka: Základní pedikúra
+        cena: 700 Kč
+      - polozka: Lakování k pedikúře
+        cena: 100 Kč
+      - polozka: Pedikúra + gel lak
+        cena: 900 Kč
+
+  - nazev: Kosmetika
+    podtitul: S přírodní kosmetikou Nobilis Tilia
+    foto: images/kosmetika.jpg
+    popis: |-
+      S touto kosmetikou jsem se setkala v průběhu své praxe a zamilovala si její vůni a čistotu. Pevně věřím, že si získá i vás. Používám ji i na své děti od narození a mohu jen vřele doporučit.
+
+      Kosmetika je přírodní a aromaterapeutická z Českého Švýcarska, využívá síly 100% přírodních éterických a rostlinných olejů. Součástí nabídky je i barvení a úprava obočí.
+
+      Veškeré ošetření probíhá individuálně dle ročního období a stavu pleti klienta. Zavolejte a vše vymyslíme a domluvíme.
+    ceny:
+      - polozka: Kosmetické ošetření 55 min
+        cena: 990 Kč
+      - polozka: Kosmetické ošetření 85 min
+        cena: 1 490 Kč
+
+  - nazev: Masáže
+    podtitul: Uvolnění pro tělo i mysl
+    foto: ""
+    popis: |-
+      Klasická masáž pro uvolnění a odpočinek. Pomůže i při bolestech šíje, zad a svalů.
+    ceny:
+      - polozka: Masáž 45 min
+        cena: 750 Kč
+      - polozka: Masáž 60 min
+        cena: 850 Kč
+
+poukaz:
+  nazev: Dárkový poukaz
+  foto: images/poukaz.jpg
+  text: Možnost zakoupení dárkových poukazů. Lze koupit osobně, online nebo zaslat poštou.
+
+o_mne:
+  foto: images/veronika.jpg
+  text: |-
+    Jsem vystudovaná kosmetička, pedikérka, manikérka a masérka s maturitou. Svému oboru se věnuji od roku 2012, od roku 2016 jsem působila na Mělníku a věnovala se převážně pedikúře a kosmetice.
+
+    Pedikérský obor jsem si zamilovala, vzdělávám se a inovuji. Kosmetiku dělám čistě a jemně, bez přístrojů – v tom vidím smysl u přírodní kosmetiky.

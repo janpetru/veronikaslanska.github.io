@@ -1,0 +1,157 @@
+/* Salon Lhotka – mobile first */
+:root {
+  --bg: #f6f1e9;
+  --card: #fffdf9;
+  --text: #3d3a34;
+  --muted: #7a7166;
+  --sage: #6f8262;
+  --sage-dark: #56684b;
+  --earth: #8a6e52;
+  --line: #e4dccf;
+  --radius: 18px;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.65 var(--sans);
+  padding-bottom: 5.5rem; /* místo pro spodní lištu na mobilu */
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--sage-dark); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; color: var(--earth); margin: 0 0 .5rem; }
+h1 { font-size: clamp(2.6rem, 11vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 7vw, 2.75rem); }
+h3 { font-size: 1.45rem; margin-top: 1.5rem; }
+p, ul { margin: 0 0 1rem; }
+
+main { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 3rem; padding: .75rem 1.5rem;
+  border-radius: 999px; border: 2px solid var(--sage);
+  background: var(--sage); color: #fff;
+  font-weight: 700; text-decoration: none; letter-spacing: .02em;
+  transition: background .2s, border-color .2s;
+}
+.btn:hover { background: var(--sage-dark); border-color: var(--sage-dark); }
+.btn-ghost { background: transparent; color: var(--sage-dark); }
+.btn-ghost:hover { background: #fff; color: var(--sage-dark); }
+.btn-small { min-height: 2.5rem; padding: .4rem 1.1rem; font-size: .95rem; }
+
+/* Header */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .6rem 1.25rem;
+  background: rgba(246, 241, 233, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { font: 600 1.5rem var(--serif); color: var(--earth); text-decoration: none; }
+
+/* Hero */
+.hero { padding: 2.5rem 0 1.5rem; display: grid; gap: 2rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; font-weight: 700; color: var(--sage); margin-bottom: .5rem; }
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 30rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.actions .btn { flex: 1 1 12rem; }
+.hero-img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  object-position: center 35%;
+  border-radius: 200px 200px var(--radius) var(--radius);
+}
+
+.news {
+  background: var(--card); border-left: 4px solid var(--sage);
+  border-radius: var(--radius); padding: 1rem 1.25rem; color: var(--muted);
+}
+
+/* Quick links */
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0 1rem; }
+.chips a {
+  padding: .45rem 1rem; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); text-decoration: none; color: var(--text); font-size: .95rem;
+}
+
+/* Services */
+.service {
+  background: var(--card); border-radius: var(--radius);
+  overflow: hidden; margin: 1.5rem 0;
+  box-shadow: 0 6px 24px rgba(90, 70, 40, .06);
+}
+.service img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.service.gift img { object-fit: contain; background: #f4efe8; }
+.service-text { padding: 1.5rem 1.25rem .75rem; }
+.sub { color: var(--sage); font-weight: 600; }
+.service-text ul { padding-left: 1.2rem; }
+.service-text li { margin-bottom: .4rem; }
+.service-text strong { color: var(--text); }
+
+/* Pricing */
+.pricing {
+  margin: 2.5rem 0; padding: 2rem 1.25rem;
+  background: #eef0e7; border-radius: var(--radius);
+}
+.prices { list-style: none; padding: 0; margin: 0 0 1rem; }
+.prices li { display: flex; align-items: baseline; gap: .5rem; padding: .35rem 0; }
+.prices .dots { flex: 1; border-bottom: 1px dotted #b9b6a5; transform: translateY(-.3rem); min-width: 1rem; }
+.prices strong { white-space: nowrap; color: var(--sage-dark); }
+.pricing .btn { margin-top: 1rem; width: 100%; }
+
+/* About */
+.about { display: grid; gap: 1.5rem; justify-items: center; text-align: center; margin: 3rem 0; }
+.about img { width: 11rem; height: 11rem; border-radius: 50%; object-fit: cover; border: 6px solid var(--card); }
+.about p { font-style: italic; color: var(--muted); max-width: 40rem; }
+
+/* Contact */
+.contact { background: var(--earth); color: #fbf7f1; border-radius: var(--radius); padding: 2rem 1.25rem; margin-bottom: 2rem; }
+.contact h2, .contact h3 { color: #fff; }
+.contact h3 { font-size: 1.25rem; margin-top: 1rem; }
+.contact a { color: #fff; }
+.contact-grid { display: grid; gap: .5rem; }
+.social { display: flex; gap: 1.5rem; margin-top: 1rem; font-weight: 700; }
+
+.foot { text-align: center; color: var(--muted); font-size: .9rem; padding: 1rem 1.25rem 2rem; }
+
+/* Fixed booking bar on phones */
+.mobile-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  display: flex; gap: .5rem;
+  padding: .6rem 1rem calc(.6rem + env(safe-area-inset-bottom));
+  background: rgba(255, 253, 249, .96);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, .06);
+}
+.mobile-bar .btn:first-child { flex: 1; }
+.top .btn-small { display: none; }
+
+/* Larger screens */
+@media (min-width: 48rem) {
+  body { padding-bottom: 0; }
+  .mobile-bar { display: none; }
+  .top { padding: .75rem 2rem; }
+  .top .btn-small { display: inline-flex; }
+  main { padding: 0 2rem; }
+  .hero { grid-template-columns: 1fr 1fr; align-items: center; padding: 4rem 0 2rem; }
+  .actions .btn { flex: 0 0 auto; }
+  .service { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+  .service img { height: 100%; aspect-ratio: auto; min-height: 22rem; }
+  .service:nth-of-type(even) img { order: 2; }
+  .service-text { padding: 2.5rem; }
+  .service > .service-text:only-child { grid-column: 1 / -1; }
+  .pricing { padding: 3rem; }
+  .pricing h3:first-of-type { margin-top: .5rem; }
+  .prices { max-width: 34rem; }
+  .pricing .btn { width: auto; }
+  .about { grid-template-columns: auto 1fr; text-align: left; justify-items: start; align-items: center; }
+  .contact { padding: 3rem; }
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
