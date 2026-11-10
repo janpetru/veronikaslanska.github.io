@@ -14,8 +14,6 @@
   --radius: 28px;
   --display: "Italiana", "Didot", Georgia, serif;
   --serif: "Playfair Display", Georgia, serif;
-  --script: "Great Vibes", "Snell Roundhand", cursive;
-  --name: "Cormorant Garamond", Georgia, serif;
   --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -113,20 +111,14 @@ p, ul { margin: 0 0 1rem; }
 
 /* Hero */
 .hero { display: grid; gap: 3rem; padding-block: 2.5rem 3rem; align-items: center; }
-.hero-name { display: flex; flex-direction: column; margin: 0 0 1.75rem; }
-.hero-name .first {
-  font: 400 clamp(3rem, 12vw, 5rem)/1 var(--script); color: var(--terra-dark);
-  margin-left: -.05em; padding-right: .15em;
+.hero-name {
+  margin: 0 0 1.5rem;
+  font: 400 clamp(2.3rem, 9vw, 3.6rem)/1.1 var(--serif); color: var(--terra-dark);
+  letter-spacing: -.01em;
 }
-.hero-name .last {
-  display: flex; align-items: center; gap: 1rem;
-  margin-top: -.15em; padding-left: .2em;
-  font: 500 clamp(1rem, 4.4vw, 1.35rem)/1.2 var(--name); color: var(--brown);
-  letter-spacing: .42em; text-transform: uppercase;
-}
-.hero-name .last::after {
-  content: ""; flex: 1; max-width: 6rem; height: 1px;
-  background: linear-gradient(90deg, var(--salmon), transparent);
+.hero-name::after {
+  content: ""; display: block; width: 4rem; height: 2px; margin-top: 1.1rem;
+  background: var(--grad); border-radius: 2px;
 }
 .lead { font-size: 1.1rem; color: var(--muted); max-width: 32rem; }
 .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.75rem; }
