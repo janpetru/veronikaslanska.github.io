@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Náhled jména – varianty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  .variant { padding: 2.5rem 0 3rem; border-bottom: 1px solid var(--line); }
+  .vlabel {
+    display: inline-block; margin-bottom: 1.75rem; padding: .3rem .8rem; border-radius: 99px;
+    background: var(--blush); color: var(--terra-dark);
+    font: 600 .75rem/1 var(--sans); letter-spacing: .15em; text-transform: uppercase;
+  }
+  .vnote { margin-top: 1.25rem; font-size: .9rem; color: var(--muted); }
+  .lead { margin-top: 1.5rem; }
+
+  /* A – Monogram */
+  .a { display: flex; align-items: center; gap: 1.1rem; }
+  .a .mono {
+    flex: none; width: 4.6rem; height: 4.6rem; border-radius: 50%;
+    border: 1px solid var(--terra); display: grid; place-items: center; position: relative;
+    font: 400 2.1rem/1 "Italiana", serif; color: var(--terra-dark); letter-spacing: -.02em;
+  }
+  .a .mono::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; border: 1px solid var(--line); }
+  .a .txt { font: 400 clamp(1.45rem, 6.6vw, 2.2rem)/1.15 "Italiana", serif; color: var(--brown); letter-spacing: .14em; text-transform: uppercase; }
+  .a .txt small { display: block; margin-top: .45rem; font: 400 .62rem/1 var(--sans); letter-spacing: .18em; white-space: nowrap; color: var(--terra); }
+
+  /* B – Editorial */
+  .b { font: 300 clamp(3.4rem, 15vw, 5.6rem)/.92 "Cormorant Garamond", serif; color: var(--brown); letter-spacing: -.02em; margin: 0; }
+  .b em { display: block; font-style: italic; color: var(--terra); padding-left: .9em; }
+
+  /* C – Minimal */
+  .c-kicker { font: 500 .72rem/1 var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--terra); display: flex; align-items: center; gap: .8rem; }
+  .c-kicker::before { content: ""; width: 2rem; height: 1px; background: var(--terra); }
+  .c { margin: 1rem 0 0; font: 200 clamp(2.9rem, 13vw, 4.6rem)/1 var(--sans); color: var(--brown); letter-spacing: -.045em; }
+  .c b { font-weight: 500; color: var(--terra-dark); }
+
+  /* D – Logotyp */
+  .d { display: inline-flex; flex-direction: column; align-items: stretch; text-align: center; color: var(--terra-dark); margin: 0; }
+  .d .big { font: 400 clamp(3.2rem, 15vw, 5rem)/1 "Italiana", serif; letter-spacing: .06em; }
+  .d .small { display: flex; align-items: center; gap: .9rem; margin-top: .55rem; font: 400 .8rem/1 var(--sans); letter-spacing: .55em; color: var(--brown); text-transform: uppercase; }
+  .d .small::before, .d .small::after { content: ""; flex: 1; height: 1px; background: var(--salmon); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p style="margin-top:1.5rem"><a href="./">← zpět na web</a></p>
+  <h1 class="section-title" style="margin-top:.5rem">Varianty jména</h1>
+  <p class="vnote">Čtyři návrhy, jak by mohlo vypadat jméno nahoře na webu. Stačí říct písmeno.</p>
+
+  <section class="variant">
+    <span class="vlabel">A · Monogram</span>
+    <div class="a">
+      <div class="mono">VS</div>
+      <div class="txt">Veronika Slánská<small>pedikúra · kosmetika · masáže</small></div>
+    </div>
+    <p class="lead">Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.</p>
+    <p class="vnote">Iniciály v kroužku jako značka (jako razítko nebo logo), vedle jméno v tenkém písmu z hlavičky.</p>
+  </section>
+
+  <section class="variant">
+    <span class="vlabel">B · Magazín</span>
+    <p class="b">Veronika<em>Slánská</em></p>
+    <p class="lead">Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.</p>
+    <p class="vnote">Velké tenké patkové písmo jako na obálce módního časopisu; příjmení kurzívou a odsazené.</p>
+  </section>
+
+  <section class="variant">
+    <span class="vlabel">C · Minimal</span>
+    <div class="c-kicker">Pedikúra · kosmetika · masáže</div>
+    <p class="c">Veronika <b>Slánská</b></p>
+    <p class="lead">Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.</p>
+    <p class="vnote">Čisté moderní bezpatkové písmo, velmi tenké jméno a výraznější příjmení.</p>
+  </section>
+
+  <section class="variant">
+    <span class="vlabel">D · Logotyp</span>
+    <p class="d"><span class="big">VERONIKA</span><span class="small">Slánská</span></p>
+    <p class="lead">Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.</p>
+    <p class="vnote">Jméno složené jako logo: velké „VERONIKA“ a pod ním proložené „SLÁNSKÁ“ přesně na stejnou šířku.</p>
+  </section>
+</main>
+</body>
+</html>
