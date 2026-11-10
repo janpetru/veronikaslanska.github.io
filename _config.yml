@@ -5,3 +5,4 @@ markdown: kramdown
 exclude:
   - README.md
   - NAVOD.md
+  - tests

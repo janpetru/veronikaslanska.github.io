@@ -9,130 +9,248 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ w.nazev }} – {{ w.jmeno }} | pedikúra, kosmetika, masáže</title>
   <meta name="description" content="{{ site.description }}">
-  <meta name="theme-color" content="#f6f1e9">
-  <meta property="og:title" content="{{ w.nazev }} – {{ w.jmeno }}">
+  <meta name="theme-color" content="#fbf7f3">
+  <meta property="og:title" content="{{ w.nazev }} – {{ w.motto }}">
   <meta property="og:description" content="{{ site.description }}">
   <meta property="og:image" content="{{ w.uvodni_foto }}">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26C6 12 16 5 27 5c0 12-8 21-21 21z' fill='%237a8b6a'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23a5583f'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' fill='white' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Nunito+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="topbar">
+  <span>{{ w.adresa | replace: '
+', ', ' }}</span>
+  <a href="tel:{{ tel }}">{{ w.telefon }}</a>
+</div>
+
 <header class="top">
-  <a class="brand" href="#">{{ w.nazev }}</a>
-  <a class="btn btn-small" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Rezervovat</a>
+  <div class="top-inner">
+    <a class="brand" href="#">
+      <span class="brand-name">{{ w.nazev }}</span>
+      {%- if w.motto %}<span class="brand-motto">{{ w.motto | downcase }}</span>{% endif %}
+    </a>
+    <nav class="menu" id="menu" aria-label="Hlavní menu">
+      <a href="#sluzby">Služby</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#poukaz">Poukazy</a>
+      <a href="#o-mne">O mně</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="menu-tel" href="tel:{{ tel }}">{{ w.telefon }}</a>
+    </nav>
+    <a class="btn btn-small header-cta" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Rezervovat</a>
+    <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero wrap">
     <div class="hero-text">
-      <p class="eyebrow">{{ w.jmeno }} · {{ w.podnazev }}</p>
-      <h1>{{ w.nazev }}</h1>
+      <p class="pill">{{ w.jmeno }} · Lhotka {{ w.podnazev }}</p>
+      <h1>{{ w.motto }}</h1>
       <p class="lead">{{ w.slogan }}</p>
       <div class="actions">
         <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Online rezervace</a>
-        <a class="btn btn-ghost" href="tel:{{ tel }}">Zavolat {{ w.telefon }}</a>
+        <a class="btn btn-ghost" href="#sluzby">Naše služby</a>
       </div>
     </div>
-    {%- if w.uvodni_foto != "" and w.uvodni_foto %}
-    <img class="hero-img" src="{{ w.uvodni_foto }}" alt="{{ w.nazev }}" width="1200" height="851">
-    {%- endif %}
-  </section>
-
-  {%- if w.novinka != "" and w.novinka %}
-  <p class="news">{{ w.novinka }}</p>
-  {%- endif %}
-
-  <nav class="chips" aria-label="Služby">
-    {%- for s in w.sluzby %}
-    <a href="#{{ s.nazev | slugify }}">{{ s.nazev }}</a>
-    {%- endfor %}
-    <a href="#cenik">Ceník</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-
-  {%- for s in w.sluzby %}
-  <section class="service" id="{{ s.nazev | slugify }}">
-    {%- if s.foto != "" and s.foto %}
-    <img src="{{ s.foto }}" alt="{{ s.nazev }}" loading="lazy">
-    {%- endif %}
-    <div class="service-text">
-      <h2>{{ s.nazev }}</h2>
-      {%- if s.podtitul %}<p class="sub">{{ s.podtitul }}</p>{% endif %}
-      {{ s.popis | markdownify }}
+    <div class="hero-visual">
+      {% include kvet.svg %}
+      {%- if w.uvodni_foto != "" and w.uvodni_foto %}
+      <img class="hero-img" src="{{ w.uvodni_foto }}" alt="{{ w.jmeno }}" width="600" height="600">
+      {%- endif %}
+      {%- if w.novinka != "" and w.novinka %}
+      <div class="news"><span class="news-tag">Novinka</span><p>{{ w.novinka }}</p></div>
+      {%- endif %}
     </div>
   </section>
-  {%- endfor %}
+
+  {%- if w.vyhody.size > 0 %}
+  <section class="perks wrap" aria-label="Proč k nám">
+    {%- for v in w.vyhody %}
+    <div class="perk">
+      <span class="perk-icon" aria-hidden="true">
+        {%- assign i = forloop.index0 | modulo: 3 -%}
+        {%- if i == 0 -%}
+        <svg viewBox="0 0 24 24"><path d="M12 3s7 3 7 9a7 7 0 0 1-14 0c0-6 7-9 7-9z"/><path d="M12 8v13"/></svg>
+        {%- elsif i == 1 -%}
+        <svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19l8-8"/></svg>
+        {%- else -%}
+        <svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/></svg>
+        {%- endif -%}
+      </span>
+      <h3>{{ v.nazev }}</h3>
+      <p>{{ v.text }}</p>
+    </div>
+    {%- endfor %}
+  </section>
+  {%- endif %}
+
+  <section class="services" id="sluzby">
+    <div class="wrap">
+      <p class="kicker">Co pro vás dělám</p>
+      <h2 class="section-title">Služby</h2>
+      {%- for s in w.sluzby %}
+      <article class="service" id="{{ s.nazev | slugify }}">
+        <div class="service-media">
+          {%- if s.foto != "" and s.foto %}
+          <img src="{{ s.foto }}" alt="{{ s.nazev }}" loading="lazy">
+          {%- else %}
+          <div class="media-placeholder">{% include kvet.svg %}</div>
+          {%- endif %}
+        </div>
+        <div class="service-text">
+          <span class="ribbon">{{ s.nazev }}</span>
+          {%- if s.podtitul %}<h3>{{ s.podtitul }}</h3>{% else %}<h3>{{ s.nazev }}</h3>{% endif %}
+          {{ s.popis | markdownify }}
+          {%- if s.ceny.size > 0 %}
+          <p class="from">od <strong>{{ s.ceny.first.cena }}</strong> · <a href="#cenik">celý ceník</a></p>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
 
   <section class="pricing" id="cenik">
-    <h2>Ceník</h2>
-    {%- for s in w.sluzby %}
-    {%- if s.ceny.size > 0 %}
-    <h3>{{ s.nazev }}</h3>
-    <ul class="prices">
-      {%- for c in s.ceny %}
-      <li><span>{{ c.polozka }}</span><span class="dots" aria-hidden="true"></span><strong>{{ c.cena }}</strong></li>
-      {%- endfor %}
-    </ul>
-    {%- endif %}
-    {%- endfor %}
-    <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Vybrat termín online</a>
+    <div class="wrap">
+      <p class="kicker">Přehledně</p>
+      <h2 class="section-title">Ceník</h2>
+      <div class="price-grid">
+        {%- for s in w.sluzby %}
+        {%- if s.ceny.size > 0 %}
+        <div class="price-card">
+          <h3>{{ s.nazev }}</h3>
+          <ul class="prices">
+            {%- for c in s.ceny %}
+            <li><span>{{ c.polozka }}</span><strong>{{ c.cena }}</strong></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      <p class="center"><a class="btn btn-light" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Vybrat termín online</a></p>
+    </div>
   </section>
 
   {%- if w.poukaz.text != "" and w.poukaz.text %}
-  <section class="service gift">
+  <section class="gift wrap" id="poukaz">
     {%- if w.poukaz.foto != "" and w.poukaz.foto %}
     <img src="{{ w.poukaz.foto }}" alt="{{ w.poukaz.nazev }}" loading="lazy">
     {%- endif %}
-    <div class="service-text">
+    <div class="gift-text">
+      <p class="kicker">Udělejte radost</p>
       <h2>{{ w.poukaz.nazev }}</h2>
       {{ w.poukaz.text | markdownify }}
+      <a class="btn btn-ghost" href="tel:{{ tel }}">Objednat poukaz</a>
     </div>
   </section>
   {%- endif %}
 
-  <section class="about">
-    {%- if w.o_mne.foto != "" and w.o_mne.foto %}
-    <img src="{{ w.o_mne.foto }}" alt="{{ w.jmeno }}" loading="lazy" width="600" height="600">
-    {%- endif %}
-    <div>
-      <h2>{{ w.jmeno }}</h2>
-      {{ w.o_mne.text | markdownify }}
+  <section class="about" id="o-mne">
+    <div class="wrap about-inner">
+      {%- if w.o_mne.foto != "" and w.o_mne.foto %}
+      <div class="about-photo">
+        <img src="{{ w.o_mne.foto }}" alt="{{ w.jmeno }}" loading="lazy" width="600" height="600">
+      </div>
+      {%- endif %}
+      <div>
+        <p class="kicker">O mně</p>
+        <h2>{{ w.jmeno }}</h2>
+        {{ w.o_mne.text | markdownify }}
+      </div>
     </div>
   </section>
 
-  <section class="contact" id="kontakt">
-    <h2>Kontakt</h2>
+  <section class="contact wrap" id="kontakt">
+    <p class="kicker">Těším se na vás</p>
+    <h2 class="section-title">Kontakt</h2>
     <div class="contact-grid">
-      <div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         <h3>Adresa</h3>
-        <p>{{ w.jmeno }}<br>{{ w.adresa | newline_to_br }}</p>
-        <p><a href="https://mapy.cz/zakladni?q={{ w.adresa | replace: '
-', ', ' | url_encode }}" target="_blank" rel="noopener">Zobrazit na mapě</a></p>
+        <p>{{ w.adresa | newline_to_br }}</p>
+        <a href="https://mapy.cz/zakladni?q={{ w.adresa | replace: '
+', ', ' | url_encode }}" target="_blank" rel="noopener">Zobrazit na mapě →</a>
       </div>
-      <div>
-        <h3>Otevírací doba</h3>
-        <p>{{ w.oteviraci_doba }}</p>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
         <h3>Telefon a e-mail</h3>
         <p><a href="tel:{{ tel }}">{{ w.telefon }}</a><br><a href="mailto:{{ w.email }}">{{ w.email }}</a></p>
       </div>
+      <div class="contact-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Otevírací doba</h3>
+        <p>{{ w.oteviraci_doba }}</p>
+        <a href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Volné termíny online →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <p class="brand-name">{{ w.nazev }}</p>
+      <p class="brand-motto">{{ w.motto | downcase }}</p>
     </div>
     <p class="social">
       {%- if w.instagram != "" and w.instagram %}<a href="{{ w.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
       {%- if w.facebook != "" and w.facebook %}<a href="{{ w.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
     </p>
-  </section>
-</main>
+    <p class="copy">© {{ site.time | date: "%Y" }} {{ w.jmeno }}</p>
+  </div>
+</footer>
 
-<footer class="foot">© {{ site.time | date: "%Y" }} {{ w.jmeno }} · {{ w.nazev }}</footer>
-
-<div class="mobile-bar">
+<div class="mobile-bar" id="mobile-bar">
   <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Online rezervace</a>
-  <a class="btn btn-ghost" href="tel:{{ tel }}" aria-label="Zavolat">Zavolat</a>
+  <a class="btn btn-ghost" href="tel:{{ tel }}">Zavolat</a>
 </div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // Mobilní menu
+  var toggle = document.querySelector('.menu-toggle');
+  function setMenu(open) {
+    root.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+  }
+  toggle.addEventListener('click', function () { setMenu(!root.classList.contains('menu-open')); });
+  document.querySelectorAll('#menu a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  // Spodní lišta se ukáže až pod úvodem a jen když na obrazovce není jiné tlačítko rezervace
+  var heroActions = document.querySelector('.hero .actions');
+  var rezUrl = document.querySelector('#mobile-bar a').getAttribute('href');
+  var ctas = [].filter.call(document.querySelectorAll('main a'), function (a) {
+    return a.getAttribute('href') === rezUrl;
+  });
+  if (heroActions && 'IntersectionObserver' in window) {
+    var visible = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
+      var pastHero = heroActions.getBoundingClientRect().bottom < 0;
+      root.classList.toggle('show-bar', pastHero && visible.size === 0);
+    });
+    ctas.forEach(function (b) { io.observe(b); });
+    io.observe(heroActions);
+  } else {
+    root.classList.add('show-bar');
+  }
+})();
+</script>
 
 </body>
 </html>

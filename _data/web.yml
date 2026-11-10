@@ -1,6 +1,7 @@
 nazev: Salon Lhotka
 podnazev: u Mělníka
 jmeno: Veronika Slánská
+motto: Místo, kde se zastaví čas
 slogan: Přístrojová pedikúra, přírodní kosmetika a masáže v klidném prostředí vesnice.
 rezervace_url: https://veronika-slanska.snippet.myfox.cz/individual
 telefon: "+420 605 168 729"
@@ -11,8 +12,16 @@ adresa: |-
 oteviraci_doba: Dle objednání
 instagram: https://www.instagram.com/salon_lhotka/
 facebook: https://www.facebook.com/veronika.petru.kosmetika.a.pedikura
-uvodni_foto: images/pedikura.jpg
+uvodni_foto: images/veronika.jpg
 novinka: Nově od října 2025, po 10 letech praxe v oboru, se přesouvám do klidného prostředí vesnice, kde vám nabídnu profesionální péči v příjemné atmosféře.
+
+vyhody:
+  - nazev: Pedikúra bez skalpelu
+    text: Šetrné přístrojové ošetření, vhodné i pro diabetiky.
+  - nazev: 100% přírodní
+    text: Aromaterapeutická kosmetika Nobilis Tilia z Českého Švýcarska.
+  - nazev: Přes 10 let praxe
+    text: Individuální péče v klidném prostředí vesnice.
 
 sluzby:
   - nazev: Suchá pedikúra

@@ -1,0 +1,19 @@
+<svg class="kvet" viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M104 258C102 210 96 168 82 128C74 104 68 82 62 56"/>
+  <path d="M92 168C112 136 134 112 152 84"/>
+  <path d="M96 214C122 206 142 188 154 166C128 170 108 186 96 214Z"/>
+  <path d="M96 214C118 196 136 182 154 166"/>
+  <path d="M84 132C60 128 42 112 32 90C56 96 74 110 84 132Z"/>
+  <path d="M84 132C66 118 48 104 32 90"/>
+  <path d="M120 128C136 132 152 126 164 112C146 108 130 114 120 128Z"/>
+  <path d="M62 56C48 52 38 38 40 22C48 28 54 28 60 18C64 28 70 30 80 24C82 40 74 52 62 56Z"/>
+  <path d="M60 18C60 30 61 44 62 56M50 38L54 48M72 36L68 48"/>
+  <g transform="translate(158 72)">
+    <ellipse rx="7" ry="15" transform="translate(0 -14)"/>
+    <ellipse rx="7" ry="15" transform="rotate(72) translate(0 -14)"/>
+    <ellipse rx="7" ry="15" transform="rotate(144) translate(0 -14)"/>
+    <ellipse rx="7" ry="15" transform="rotate(216) translate(0 -14)"/>
+    <ellipse rx="7" ry="15" transform="rotate(288) translate(0 -14)"/>
+    <circle r="3.5"/>
+  </g>
+</svg>

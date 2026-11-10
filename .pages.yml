@@ -13,6 +13,7 @@ content:
       - { name: nazev, label: Název salonu, type: string }
       - { name: podnazev, label: Lokalita (podnázev), type: string }
       - { name: jmeno, label: Jméno, type: string }
+      - { name: motto, label: Motto (velký nadpis), type: string }
       - { name: slogan, label: Krátký popis pod nadpisem, type: text }
       - { name: uvodni_foto, label: Úvodní fotka, type: image }
       - { name: novinka, label: Oznámení / novinka (nechte prázdné pro skrytí), type: text }
@@ -23,6 +24,13 @@ content:
       - { name: oteviraci_doba, label: Otevírací doba, type: string }
       - { name: instagram, label: Instagram (odkaz), type: string }
       - { name: facebook, label: Facebook (odkaz), type: string }
+      - name: vyhody
+        label: Výhody (3 krátké body pod úvodem)
+        type: object
+        list: true
+        fields:
+          - { name: nazev, label: Nadpis, type: string }
+          - { name: text, label: Text, type: string }
       - name: sluzby
         label: Služby
         type: object
