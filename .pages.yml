@@ -13,7 +13,7 @@ content:
       - { name: nazev, label: Název salonu, type: string }
       - { name: podnazev, label: Lokalita (podnázev), type: string }
       - { name: jmeno, label: Jméno, type: string }
-      - { name: motto, label: Motto (velký nadpis), type: string }
+      - { name: motto, label: Motto (pod jménem v úvodu a v logu), type: string }
       - { name: slogan, label: Krátký popis pod nadpisem, type: text }
       - { name: uvodni_foto, label: Úvodní fotka, type: image }
       - { name: novinka, label: Oznámení / novinka (nechte prázdné pro skrytí), type: text }

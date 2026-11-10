@@ -51,12 +51,13 @@
 <main>
   <section class="hero wrap">
     <div class="hero-text">
-      <p class="pill">{{ w.jmeno }} · Lhotka {{ w.podnazev }}</p>
-      <h1>{{ w.motto }}</h1>
+      <p class="pill">{{ w.nazev }} · Lhotka {{ w.podnazev }}</p>
+      <h1>{{ w.jmeno }}</h1>
+      {%- if w.motto %}<p class="motto">{{ w.motto }}</p>{% endif %}
       <p class="lead">{{ w.slogan }}</p>
       <div class="actions">
         <a class="btn" href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Online rezervace</a>
-        <a class="btn btn-ghost" href="#sluzby">Naše služby</a>
+        <a class="btn btn-ghost" href="#sluzby">Co nabízím</a>
       </div>
     </div>
     <div class="hero-visual">
