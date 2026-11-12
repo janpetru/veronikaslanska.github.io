@@ -23,6 +23,8 @@ content:
       - { name: email, label: E-mail, type: string }
       - { name: adresa, label: Adresa, type: text }
       - { name: adresa_poznamka, label: Poznámka k adrese (jak salon najít), type: string }
+      - { name: mapa_url, label: Odkaz na mapu (např. z Google Map – Sdílet → Kopírovat odkaz), type: string }
+      - { name: mapa_souradnice, label: "Souřadnice pro vloženou mapu (např. 50.3727079,14.5462433)", type: string }
       - { name: oteviraci_doba, label: Otevírací doba, type: string }
       - { name: instagram, label: Instagram (odkaz), type: string }
       - { name: facebook, label: Facebook (odkaz), type: string }
