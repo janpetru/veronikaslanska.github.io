@@ -218,8 +218,8 @@
         <a href="{{ w.rezervace_url }}" target="_blank" rel="noopener">Volné termíny online →</a>
       </div>
     </div>
-    {%- if w.mapa_souradnice and w.mapa_souradnice != "" %}{% assign mapa_q = w.mapa_souradnice | remove: " " %}{% else %}{% assign mapa_q = adresa_radek | url_encode %}{% endif %}
-    <iframe class="contact-map" title="Mapa – {{ w.nazev }}, {{ adresa_radek }}" src="https://maps.google.com/maps?q={{ mapa_q }}&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    {%- if w.mapa_embed and w.mapa_embed != "" %}{% assign mapa_src = w.mapa_embed %}{% else %}{% capture mapa_src %}https://maps.google.com/maps?q={{ w.nazev | append: ", " | append: adresa_radek | url_encode }}&z=16&output=embed{% endcapture %}{% endif %}
+    <iframe class="contact-map" title="Mapa – {{ w.nazev }}, {{ adresa_radek }}" src="{{ mapa_src }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 </main>
 
