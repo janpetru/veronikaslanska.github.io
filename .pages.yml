@@ -59,6 +59,15 @@ content:
           - { name: nazev, label: Nadpis, type: string }
           - { name: foto, label: Fotka, type: image }
           - { name: text, label: Text, type: text }
+          - name: sezonni
+            label: Sezónní poukaz (např. vánoční) – zobrazí se jen v zadaném období
+            type: object
+            fields:
+              - { name: nazev, label: Nadpis, type: string }
+              - { name: text, label: Text, type: text }
+              - { name: foto, label: Obrázek poukazu, type: image }
+              - { name: od, label: Zobrazit od, type: date }
+              - { name: do, label: Zobrazit do (včetně), type: date }
       - name: o_mne
         label: O mně
         type: object

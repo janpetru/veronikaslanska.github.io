@@ -10,7 +10,7 @@ email: slanskaveronika@email.cz
 adresa: |-
   Lhotka 55
   277 31 Lhotka
-adresa_poznamka: Pozor, salon nenajdete na obecním úřadě.
+adresa_poznamka: Salon najdete v budově obecního úřadu.
 oteviraci_doba: Dle objednání
 instagram: https://www.instagram.com/salon_lhotka/
 facebook: https://www.facebook.com/veronika.petru.kosmetika.a.pedikura
@@ -78,6 +78,12 @@ poukaz:
   nazev: Dárkový poukaz
   foto: images/poukaz.jpg
   text: Možnost zakoupení dárkových poukazů. Lze koupit osobně, online nebo zaslat poštou.
+  sezonni:
+    nazev: Vánoční poukaz
+    text: Hledáte dárek pod stromeček? Do Vánoc nabízím i sváteční dárkový poukaz. Stačí zavolat a poukaz vám připravím.
+    foto: images/poukaz-vanoce.jpg
+    od: 2026-11-12
+    do: 2026-12-24
 
 o_mne:
   foto: images/veronika.jpg

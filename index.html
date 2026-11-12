@@ -156,6 +156,22 @@
       {{ w.poukaz.text | markdownify }}
       <a class="btn btn-ghost" href="tel:{{ tel }}">Objednat poukaz</a>
     </div>
+    {%- assign sz = w.poukaz.sezonni %}
+    {%- assign dnes = site.time | date: "%Y-%m-%d" %}
+    {%- assign sz_do = sz.do | date: "%Y-%m-%d" %}
+    {%- if sz.nazev and sz.nazev != "" %}{% unless sz.do and sz_do < dnes %}
+    <div class="gift-season"{% if sz.od %} data-od="{{ sz.od | date: '%Y-%m-%d' }}"{% endif %}{% if sz.do %} data-do="{{ sz_do }}"{% endif %}>
+      {%- if sz.foto != "" and sz.foto %}
+      <img src="{{ sz.foto }}" alt="{{ sz.nazev }}" loading="lazy" width="1200" height="851">
+      {%- endif %}
+      <div>
+        <span class="season-tag">Jen do {{ sz.do | date: "%-d. %-m." }}</span>
+        <h3>{{ sz.nazev }}</h3>
+        {{ sz.text | markdownify }}
+        <a class="btn" href="tel:{{ tel }}">Objednat {{ sz.nazev | downcase }}</a>
+      </div>
+    </div>
+    {%- endunless %}{% endif %}
   </section>
   {%- endif %}
 
@@ -229,6 +245,12 @@
 (function () {
   var root = document.documentElement;
   root.classList.add('js');
+
+  // Sezónní obsah (např. vánoční poukaz) jen v zadaném období
+  var dnes = new Date(), d = dnes.getFullYear() + '-' + ('0' + (dnes.getMonth() + 1)).slice(-2) + '-' + ('0' + dnes.getDate()).slice(-2);
+  document.querySelectorAll('[data-od], [data-do]').forEach(function (el) {
+    if ((el.dataset.od && d < el.dataset.od) || (el.dataset.do && d > el.dataset.do)) el.hidden = true;
+  });
 
   // Mobilní menu
   var toggle = document.querySelector('.menu-toggle');
